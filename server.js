@@ -59,6 +59,6 @@ io.on("connection", socket => {
 });
 
 //SERVER SOCKET
-server.listen(PORT,() => {
+server.listen(process.env.PORT || PORT,() => {
 	console.log('SERVER STARTED AT : ' + PORT);
 });
