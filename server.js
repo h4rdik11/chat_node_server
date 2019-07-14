@@ -54,6 +54,8 @@ io.on("connection", socket => {
 		OnlineUser.findOneAndRemove({sender_id:data.sender_id}, (err,data) =>{});
 	});
 	socket.on("send_message", (data) => {
+		data["timestamp"] = Date.now();
+		console.log(data);
 		io.sockets.emit("receive_message", data);
 	})
 });
